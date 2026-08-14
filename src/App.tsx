@@ -8,6 +8,7 @@ import {
   prefersReducedMotion,
   scrollToSection,
 } from './hooks/useSmoothScroll'
+import { SeoManager } from './hooks/useSeo'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
 const About = lazy(() => import('./pages/About').then((m) => ({ default: m.About })))
@@ -59,6 +60,7 @@ function Shell() {
     <>
       <div className="grain" aria-hidden="true" />
       <ScrollManager />
+      <SeoManager />
       <ScrollProgress />
       <Nav />
       <main>
