@@ -21,6 +21,15 @@ export function scrollToSection(id: string) {
   }
 }
 
+export function lockScroll(locked: boolean) {
+  if (!lenisRef) return
+  if (locked) {
+    lenisRef.stop()
+  } else {
+    lenisRef.start()
+  }
+}
+
 export function useSmoothScroll(enabled: boolean) {
   useEffect(() => {
     if (!enabled) return
