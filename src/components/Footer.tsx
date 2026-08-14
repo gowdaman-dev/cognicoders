@@ -4,6 +4,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MapPin, EnvelopeSimple } from '@phosphor-icons/react'
 import { prefersReducedMotion } from '../hooks/useSmoothScroll'
+import { BrandLogo } from './BrandLogo'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -59,10 +60,7 @@ export function Footer() {
         <div className="foot-top">
           <div className="foot-brand foot-col">
             <Link to="/" className="brand" aria-label="CogniCoders home">
-              <span className="brand-mark" aria-hidden="true" />
-              <span>
-                Cogni<em>Coders</em>
-              </span>
+              <BrandLogo />
             </Link>
             <p className="foot-tag">
               Engineering intelligent software for the security & identification,

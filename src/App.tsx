@@ -58,7 +58,6 @@ function Shell() {
 
   return (
     <>
-      <div className="grain" aria-hidden="true" />
       <ScrollManager />
       <SeoManager />
       <ScrollProgress />

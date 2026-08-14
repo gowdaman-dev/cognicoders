@@ -44,7 +44,13 @@ html.lenis body {
 
 body {
   font-family: var(--font-display);
-  background: var(--bg);
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(255, 46, 61, 0.07), transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+    var(--bg);
+  background-size: 100% 100%, 72px 72px, 72px 72px, 100% 100%;
+  background-attachment: fixed, fixed, fixed, fixed;
   color: var(--text);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -188,10 +194,14 @@ canvas {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
+  color: var(--text);
+}
+
+.brand .brand-logo {
+  width: auto;
+  height: 40px;
+  flex: none;
+  display: block;
 }
 
 .brand-mark {
@@ -286,12 +296,12 @@ canvas {
   z-index: 0;
   background: radial-gradient(
       120% 100% at 72% 58%,
-      #200709 0%,
-      #120506 38%,
-      #0a0a0b 72%,
-      #080809 100%
+      rgba(32, 7, 9, 0.92) 0%,
+      rgba(18, 5, 6, 0.8) 38%,
+      rgba(10, 10, 11, 0.55) 72%,
+      transparent 100%
     )
-    #0a0a0b;
+    transparent;
 }
 
 /* ---------- Biometric scan frame ---------- */
@@ -709,36 +719,6 @@ canvas {
   }
   to {
     transform: translateX(-50%);
-  }
-}
-
-/* ---------- Grain overlay ---------- */
-
-.grain {
-  position: fixed;
-  inset: -50%;
-  z-index: 60;
-  pointer-events: none;
-  opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  animation: grain-shift 0.9s steps(4) infinite;
-}
-
-@keyframes grain-shift {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-2%, 1%);
-  }
-  50% {
-    transform: translate(1%, -2%);
-  }
-  75% {
-    transform: translate(-1%, 2%);
-  }
-  100% {
-    transform: translate(0, 0);
   }
 }
 
@@ -3865,7 +3845,6 @@ a.ct-info-value:hover {
 /* ---------- Reduced motion ---------- */
 
 @media (prefers-reduced-motion: reduce) {
-  .grain,
   .marquee-track,
   .bio-scan,
   .cta-scan,
