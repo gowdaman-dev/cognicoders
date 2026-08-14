@@ -328,8 +328,7 @@ canvas {
   z-index: 30;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: calc(var(--nav-h) + 24px) clamp(20px, 6vw, 40px) 32px;
+  padding: calc(var(--nav-h) + 24px) clamp(20px, 6vw, 40px) calc(32px + env(safe-area-inset-bottom, 0px));
   background: rgba(10, 10, 11, 0.97);
   backdrop-filter: blur(24px) saturate(1.4);
   -webkit-backdrop-filter: blur(24px) saturate(1.4);
@@ -343,6 +342,16 @@ canvas {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+}
+
+.nav-menu > nav {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding-right: 8px;
+  margin-right: -8px;
 }
 
 .nav-menu-list {
@@ -390,12 +399,34 @@ canvas {
   margin-top: 24px;
   color: var(--text-faint);
   font-size: 0.72rem;
+  flex: none;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .nav-menu-list a:hover {
     color: var(--red);
     transform: translateX(6px);
+  }
+}
+
+@media (max-height: 700px) {
+  .nav-menu {
+    padding-top: calc(var(--nav-h) + 16px);
+    padding-bottom: 20px;
+  }
+
+  .nav-menu-list a {
+    padding-block: 12px;
+    font-size: clamp(1.3rem, 6vw, 1.8rem);
+  }
+
+  .nav-menu-cta {
+    margin-top: 20px;
+    height: 46px;
+  }
+
+  .nav-menu-foot {
+    margin-top: 16px;
   }
 }
 
