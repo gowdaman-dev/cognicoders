@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { BrandLogo } from './BrandLogo'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,10 +22,7 @@ export function Nav() {
     <header className={`nav${scrolled ? ' scrolled' : ''}`}>
       <div className="container nav-inner">
         <Link to="/" className="brand" aria-label="CogniCoders home">
-          <span className="brand-mark" aria-hidden="true" />
-          <span>
-            Cogni<em>Coders</em>
-          </span>
+          <BrandLogo />
         </Link>
 
         <nav aria-label="Primary">
